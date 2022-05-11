@@ -5,6 +5,7 @@ import {
   Button,
   View,
   TextInput,
+  ScrollView
 
 } from 'react-native';
 import Lists from './src/components/Lists';
@@ -22,7 +23,6 @@ const handleInput = () => {
   return (
 
     <View style={styles.body}>
-      <Lists />
       {/* <Text style={styles.text}>{name}</Text> */}
 
       {/* <TextInput style={styles.input} value={name} onChangeText={setName} /> */}
@@ -36,7 +36,7 @@ const handleInput = () => {
 
 
       {/* Flexx */}
-      <View style={styles.row}>
+      {/* <View style={styles.row}>
       <View style={styles.view1}>
         <Text style={styles.text}>1</Text>
       </View>
@@ -70,7 +70,13 @@ const handleInput = () => {
         <View style={styles.view7}>
           <Text style={styles.text}>7</Text>
         </View>
-      </View>
+      </View> */}
+
+
+
+
+      <Lists />
+
     </View>
 
   );
@@ -79,10 +85,10 @@ const handleInput = () => {
 const styles = StyleSheet.create({
   body:{
     flex:1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    backgroundColor:'#ffffff',
-    justifyContent: 'flex-start',
+    // flexDirection: 'column',
+    // alignItems: 'center',
+    backgroundColor:'#4b4b4b',
+    // justifyContent: 'flex-start',
   },
   row: {
     backgroundColor: '#eee',
