@@ -5,9 +5,7 @@ import {StyleSheet,View , Text} from "react-native";
 const ScreenA = ({ navigation }) => {
 
     const onPressHandler = () => {
-        navigation.navigate('ScreenB',{
-        itemId: 87,
-        otherDetails: "Any data from redux",});
+        // navigation.navigate('ScreenB');
     }
 
     return (

@@ -1,41 +1,47 @@
 import React from 'react'
 import {Image, Button} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ScreenA from '../components/ScreenA';
 import ScreenB from '../components/ScreenB';
 
-const Stack = createNativeStackNavigator();
-
-function LogoTitle() {
-    return(
-        <Image source={{ uri:"https://reactjs.org/logo-og.png"}}
-        style={{width:100, height:100}}/>
-    )
-}
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Tab.Navigator
+            screenOptions={({route}) => ({
+                tabBarIcon:({focused, size, color}) => {
+                    let iconName;
+                    if(route.name === "ScreenA"){
+                        iconName = 'autoprefixer';
+                        size = focused ? 25 : 20;
+                        color = focused ? '#f0f' : '#555';
+                    }else if(route.name === "ScreenB"){
+                        iconName = "btc";
+                        size = focused ? 25 : 20;
+                        color = focused ? '#f0f' : '#555';
+                    }
+                    return(
+                        <FontAwesome5 
+                        name={iconName}
+                        size={size}
+                        color={color}/>
+                    )
+                },
+                    activeTintColor: '#f0f',
+                    inactiveTintColor: '#555',
+                    tabBarActiveBackgroundColor:'black'
+            })}
+            >
                 
-                <Stack.Screen name='ScreenA' component={ScreenA} options={{title:"Home page",
-            headerStyle:{
-                backgroundColor: '#f4511e'
-            },
-            headerTintColor:"#fff",
-            headerTitleStyle:{
-                fontWeight:'bold',
+                <Tab.Screen name='ScreenA' component={ScreenA} options={{tabBarBadge:9}}/>
+                <Tab.Screen name='ScreenB' component={ScreenB} />
                 
-            },
-            // headerShown:false,
-            }}/>
-                <Stack.Screen name='ScreenB' component={ScreenB} options={{headerTitle:(props) => <LogoTitle {...props}/>,
-}} 
-                />
-
-            </Stack.Navigator>
+            </Tab.Navigator>
         </NavigationContainer>
     )
 }
