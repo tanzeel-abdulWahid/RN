@@ -1,7 +1,6 @@
 import React from 'react'
 import {Image, Button} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
-
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ScreenA from '../components/ScreenA';
 import ScreenB from '../components/ScreenB';
@@ -38,7 +37,7 @@ const Navigation = () => {
             })}
             >
                 
-                <Tab.Screen name='ScreenA' component={ScreenA} options={{tabBarBadge:9}}/>
+                <Tab.Screen name='ScreenA' component={ScreenA}/>
                 <Tab.Screen name='ScreenB' component={ScreenB} />
                 
             </Tab.Navigator>

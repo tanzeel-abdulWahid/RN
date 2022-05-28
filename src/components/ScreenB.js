@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Text,Pressable, Button } from "react-native";
+import GlobalStyles from '../utils/GlobalStyles';
 
 const ScreenB = ({navigation}) => {
     return (
@@ -12,7 +13,7 @@ const ScreenB = ({navigation}) => {
             
                 onPress={() => navigation.navigate('ScreenA')}
             >
-                    <Text style={Styles.text}>
+                    <Text style={[Styles.text, GlobalStyles.CustomFont]}>
                         go to screen A
                     </Text>
             </Pressable>
@@ -25,8 +26,9 @@ export default ScreenB
 
 const Styles = StyleSheet.create({
     text: {
-        fontSize: 30,
-        fontWeight: 'bold',
+        fontSize: 60,
+        color:'black',
+        // fontWeight: 'bold',
         margin: 10,
     }
 })

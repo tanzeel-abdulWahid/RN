@@ -5,12 +5,12 @@ import {StyleSheet,View , Text} from "react-native";
 const ScreenA = ({ navigation }) => {
 
     const onPressHandler = () => {
-        // navigation.navigate('ScreenB');
+        navigation.navigate('ScreenB');
     }
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{color:'#0f0'}}>Home Screen</Text>
+            <Text style={{ color: 'black', fontSize: 30, fontFamily:'BebasNeue-Regular'}}>Home Screen</Text>
 
             <Pressable 
             onPress={onPressHandler}
@@ -28,8 +28,10 @@ export default ScreenA
 
 const Styles = StyleSheet.create({
     text:{
-        fontSize: 40,
-        fontWeight: 'bold',
+        fontSize: 50,
+        // fontWeight:'bold',
         margin: 10,
+        fontFamily:'BebasNeue-Regular',
+
     }
 })
