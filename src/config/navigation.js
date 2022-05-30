@@ -1,46 +1,35 @@
 import React from 'react'
 import {Image, Button} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ScreenA from '../components/ScreenA';
-import ScreenB from '../components/ScreenB';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from '../components/Login';
+import Home from '../components/Home';
 
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
     return (
         <NavigationContainer>
-            <Tab.Navigator
-            screenOptions={({route}) => ({
-                tabBarIcon:({focused, size, color}) => {
-                    let iconName;
-                    if(route.name === "ScreenA"){
-                        iconName = 'autoprefixer';
-                        size = focused ? 25 : 20;
-                        color = focused ? '#f0f' : '#555';
-                    }else if(route.name === "ScreenB"){
-                        iconName = "btc";
-                        size = focused ? 25 : 20;
-                        color = focused ? '#f0f' : '#555';
-                    }
-                    return(
-                        <FontAwesome5 
-                        name={iconName}
-                        size={size}
-                        color={color}/>
-                    )
+            <Stack.Navigator
+            initialRouteName='Login'
+            screenOptions={{
+                headerTitleAlign:'center',
+                headerStyle:{
+                    backgroundColor: '#0080ff'
                 },
-                    activeTintColor: '#f0f',
-                    inactiveTintColor: '#555',
-                    tabBarActiveBackgroundColor:'black'
-            })}
+                headerShown:false,
+                headerTintColor:'#ffffff',
+                headerTitleStyle:{
+                    fontSize:25,
+                    fontWeight:'bold'
+                }
+            }}
             >
                 
-                <Tab.Screen name='ScreenA' component={ScreenA}/>
-                <Tab.Screen name='ScreenB' component={ScreenB} />
+                <Stack.Screen name='Login' component={Login}/>
+                <Stack.Screen name='Home' component={Home} />
                 
-            </Tab.Navigator>
+            </Stack.Navigator>
         </NavigationContainer>
     )
 }

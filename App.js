@@ -10,12 +10,14 @@ import {
 } from 'react-native';
 // import Lists from './src/components/Lists';
 import Navigation from './src/config/navigation';
-
+import { store } from "./src/app/store"
+import { Provider } from 'react-redux';
 const App = () => {
 
   return (
-
-    <Navigation />
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
 
   );
 };
